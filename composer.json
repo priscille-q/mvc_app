@@ -1,0 +1,16 @@
+{
+    "name": "priscille-q/mvc_app",
+    "require-dev": {
+    },
+    "authors": [
+        {
+            "name": "priscille-q"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "priscille_q\\mvc_app\\": "src/"
+        }
+    }
+}
