@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>Job role</title>
+	</head>
+	<form action="?c=index&a=index" method="post">
+	    <table>
+	        <tr>
+	            <th>First name</th>
+	            <th>Last name</th>
+	            <th>Email Address</th>
+	            <th>Job Role</th>
+	            <th>Delete</th>
+	        </tr>
+	        <tr>
+	            <td><input type="text" name="people[1][firstName]" value="Jo" required /></td>
+	            <td><input type="text" name="people[1][lastName]" value="Strummer" required /></td>
+	            <td><input type="email" name="people[1][email]" value="mail+j+strummer@9xb.com" required /></td>
+	            <td><input type="text" name="people[1][jobRole]" value="Developer" required /></td>
+	            <td><input type="checkbox" name="people[1][delete]" value="1" /></td>
+	        </tr>
+	        <tr>
+	            <td><input type="text" name="people[2][firstName]" value="Mick" required /></td>
+	            <td><input type="text" name="people[2][lastName]" value="Jones" required /></td>
+	            <td><input type="email" name="people[2][email]" value="mail+m+jones@9xb.com" required /></td>
+	            <td><input type="text" name="people[2][jobRole]" value="Project Manager" required /></td>
+	            <td><input type="checkbox" name="people[2][delete]" value="1" /></td>
+	        </tr>
+	        <tr>
+	            <td><input type="text" name="people[3][firstName]" value="Pauline" required /></td>
+	            <td><input type="text" name="people[3][lastName]" value="Black" required /></td>
+	            <td><input type="email" name="people[3][email]" value="mail+p+black@9xb.com" required /></td>
+	            <td><input type="text" name="people[3][jobRole]" value="Developer" required /></td>
+	            <td><input type="checkbox" name="people[3][delete]" value="1" /></td>
+	        </tr>
+	        <tr>
+	            <td><input type="text" name="people[4][firstName]" value="Topper" required /></td>
+	            <td><input type="text" name="people[4][lastName]" value="Headon" required /></td>
+	            <td><input type="email" name="people[4][email]" value="mail+t+headon@9xb.com" required /></td>
+	            <td><input type="text" name="people[4][jobRole]" value="Developer" required /></td>
+	            <td><input type="checkbox" name="people[4][delete]" value="1" /></td>
+	        </tr>
+	        <tr>
+	        <tr>
+	            <td><input type="text" name="people[5][firstName]" placeholder="Add new..."  /></td>
+	            <td><input type="text" name="people[5][lastName]" placeholder="Add new..."  /></td>
+	            <td><input type="email" name="people[5][email]" placeholder="Add new..."  /></td>
+	            <td><input type="text" name="people[5][jobRole]" placeholder="Add new..."  /></td>
+	        </tr>
+	        <!-- <tr>
+	            <td><input type="text" name="people[5][firstName]" placeholder="Add new..." required /></td>
+	            <td><input type="text" name="people[5][lastName]" placeholder="Add new..." required /></td>
+	            <td><input type="email" name="people[5][email]" placeholder="Add new..." required /></td>
+	            <td><input type="text" name="people[5][jobRole]" placeholder="Add new..." required /></td>
+	        </tr> -->
+	    </table>
+	    <input type="submit" value="Submit!" />
+	</form>
+</html>
