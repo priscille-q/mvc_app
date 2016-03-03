@@ -36,7 +36,7 @@ Class JobRole
 		return $newJobRole;
 	}
 
-	function __destruct()
+	public function __destruct()
 	{
 		self::$numberUsageOfRole[$this->jobRoleId]--;
 	}
