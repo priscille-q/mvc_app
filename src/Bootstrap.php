@@ -53,8 +53,6 @@ class Bootstrap
 
 	protected function load()
 	{
-		// gets
-		// post
 		$this->controllerName = isset($_GET['c']) ? '\\' . __NAMESPACE__ . '\\Controller\\' . ucfirst($_GET['c']) .'Controller' : self::DEFAULT_CONTROLLER;
 		if (!class_exists($this->controllerName))
 		{
