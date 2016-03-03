@@ -24,17 +24,25 @@ class PersonDB extends DB
 		return self::$instance;
 	}
 
+	public function getPersonList()
+	{
+		$query = 'SELECT personId, firstName, lastName, email, jobRoleId
+			FROM technicalTest.person';
+		$statement = $this->pdo->query($query);
+		return $statement->fetchAll();
+	}
+
 	public function save($id, $firstName, $lastName, $email, $jobRole)
 	{
 		if (is_null($this->saveStatement))
 		{
 			$this->prepartSaveStatment();
 		}
-		$this->saveStatement->bindParam(':personId', $id);
-		$this->saveStatement->bindParam(':firstName', $firstName);
-		$this->saveStatement->bindParam(':lastName', $lastName);
-		$this->saveStatement->bindParam(':email', $email);
-		$this->saveStatement->bindParam(':jobRoleId', $jobRole);
+		$this->saveStatement->bindParam(':personId', $id, \PDO::PARAM_INT);
+		$this->saveStatement->bindParam(':firstName', $firstName, \PDO::PARAM_STR);
+		$this->saveStatement->bindParam(':lastName', $lastName, \PDO::PARAM_STR);
+		$this->saveStatement->bindParam(':email', $email, \PDO::PARAM_STR);
+		$this->saveStatement->bindParam(':jobRoleId', $jobRole->getJobRoleId(), \PDO::PARAM_INT);
 		$this->saveStatement->execute();
 	}
 
@@ -48,20 +56,20 @@ class PersonDB extends DB
 		{
 			return;
 		}
-		$this->deleteStatement->bindParam(':id', $id);
+		$this->deleteStatement->bindParam(':id', $id, \PDO::PARAM_INT);
 		$this->deleteStatement->execute();
 	}
 
 	protected function prepartSaveStatment()
 	{
-		$this->pdo->prepare(
+		$this->saveStatement = $this->pdo->prepare(
 		'REPLACE INTO technicalTest.person
 		(
 			personId,
 			firstName,
 			lastName,
 			email,
-			jobRoleId,
+			jobRoleId
 		)
 		values
 		(
@@ -69,16 +77,16 @@ class PersonDB extends DB
 			:firstName,
 			:lastName,
 			:email,
-			:jobRoleId,
+			:jobRoleId
 		)'
 	);
 	}
 
 	protected function prepartDeleteStatment()
 	{
-		$this->pdo->prepare(
+		$this->deleteStatement = $this->pdo->prepare(
 		'DELETE FROM technicalTest.person
 		WHERE personId = :id'
-	);
+		);
 	}
 }
