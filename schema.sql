@@ -9,6 +9,24 @@ CREATE TABLE technicalTest.jobRole
 	PRIMARY KEY (jobRoleId)
 ) ENGINE=INNODB COMMENT="job role";
 
+INSERT INTO technicalTest.jobRole
+(
+	role
+)
+VALUES
+(
+	'Developer'
+),
+(
+	'Project Manager'
+),
+(
+	'Designer'
+),
+(
+	'Tester'
+);
+
 CREATE TABLE technicalTest.person
 (
 	personId INT(2) UNSIGNED NOT NULL,
