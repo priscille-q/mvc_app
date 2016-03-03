@@ -29,7 +29,15 @@ class PersonDB extends DB
 		$query = 'SELECT personId, firstName, lastName, email, jobRoleId
 			FROM technicalTest.person';
 		$statement = $this->pdo->query($query);
-		return $statement->fetchAll();
+		$people = array();
+		foreach ($statement->fetchAll() as $person)
+		{
+			$people[$person['personId']]['firstName'] = $person['firstName'];
+			$people[$person['personId']]['lastName'] = $person['lastName'];
+			$people[$person['personId']]['email'] = $person['email'];
+			$people[$person['personId']]['jobRoleId'] = $person['jobRoleId'];
+		}
+		return $people;
 	}
 
 	public function save($id, $firstName, $lastName, $email, $jobRole)
@@ -52,7 +60,7 @@ class PersonDB extends DB
 		{
 			$this->prepartDeleteStatment();
 		}
-		if (!preg_match('/^[0-9]$/', $id))
+		if (!preg_match('/^[0-9]{1,}$/', $id))
 		{
 			return;
 		}
