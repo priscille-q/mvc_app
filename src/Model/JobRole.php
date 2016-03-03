@@ -17,7 +17,7 @@ Class JobRole
 		$this->jobRoleName = $jobRoleName;
 	}
 
-	public static function createJobRole($jobRoleId, $jobRoleName)
+	public static function createJobRole($jobRoleId, $jobRoleName = '')
 	{
 		if (isset(self::$numberUsageOfRole[$jobRoleId]))
 		{
@@ -38,7 +38,7 @@ Class JobRole
 
 	function __destruct()
 	{
-		self::$numberUsageOfRole[$this->jobRoleName]--;
+		self::$numberUsageOfRole[$this->jobRoleId]--;
 	}
 
 	public function getJobRoleName()
