@@ -5,6 +5,11 @@
 import schema.sql
 'mysql -u [username] -p technicalTest < schema.sql'
 
+In src/Model/DB.php modify the following lines :
+const HOST_NAME = 'localhost';
+const USER = 'root';
+const PWD = '';
+
 ### composer
 On your command line do 'composer install'
 
