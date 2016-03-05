@@ -1,4 +1,4 @@
-# Priscille Quistin Technical Test
+# Basic MVC app
 
 ## Setup
 ### Database
